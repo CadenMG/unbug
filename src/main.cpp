@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sys/ptrace.h>
+#include <sys/personality.h>
 #include <unistd.h>
 #include "debugger.hpp"
 
@@ -20,6 +21,7 @@ int main(int argc, char* argv[]) {
     auto pid = fork();
     if (pid == 0) {
         // child process
+        personality(ADDR_NO_RANDOMIZE);
         execute_debugee(prog);
     } else if (pid >= 1) {
         // parent process

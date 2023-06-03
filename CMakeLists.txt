@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.0)
 project (unbug)
 
-add_compile_options(-std=c++14)
+add_compile_options(-std=c++17)
 
 include_directories(ext/libelfin ext/linenoise include)
 add_executable(unbug src/main.cpp src/debugger.cpp ext/linenoise/linenoise.c)
