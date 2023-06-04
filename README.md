@@ -1,10 +1,17 @@
 # Features
 - Launch, halt, and continue execution
+    - Ex: `c`
 - Set breakpoints on:
     - Memory addresses
+        - Ex: `b 0x12345678`
     - Source code lines
     - Function entry
 - Read and write registers and memory
+    - Ex: `reg r r15`
+    - Ex: `reg w r15 0x12345678`
+    - Ex: `reg dump`
+    - Ex: `mem r 0x12345678`
+    - Ex: `mem w 0x12345678 0x12345678`
 - Single stepping
     - Instruction
     - Step in
