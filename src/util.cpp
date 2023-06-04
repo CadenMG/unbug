@@ -27,9 +27,13 @@ inline u_int64_t set_bottom_byte(u_int64_t data, u_int64_t bottom_byte) {
     return ((data & ~0xff) | bottom_byte);
 }
 
-std::optional<std::intptr_t> parse_addr(std::string& addr) {
-    if (!is_prefix("0x", addr) || addr.size() == 2) {
+std::optional<std::uint64_t> parse_hex(std::string& hex) {
+    if (!is_prefix("0x", hex) || hex.size() == 2) {
         return std::nullopt;
     }
-    return std::stol(addr.substr(2), 0, 16);
+    return std::stol(hex.substr(2), 0, 16);
+}
+
+std::optional<std::intptr_t> parse_addr(std::string& addr) {
+    return parse_hex(addr);
 }
