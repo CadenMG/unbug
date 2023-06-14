@@ -14,9 +14,13 @@
     - Ex: `mem w 0x12345678 0x12345678`
 - Single stepping
     - Instruction
+        - Ex: `stepi`
     - Step in
+        - Ex: `step`
     - Step out
+        - Ex: `finnish`
     - Step over
+        - Ex: `next`
 - Print current source location
 - Print backtrace
 - Print values of simple variables
