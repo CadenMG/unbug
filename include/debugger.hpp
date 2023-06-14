@@ -28,7 +28,7 @@ namespace unbug {
             void set_breakpoint_at_address(std::intptr_t addr);
             void dump_registers();
             void print_source(const std::string& file_name, unsigned line, 
-                unsigned n_lines_context);
+                unsigned n_lines_context=2);
  
         private:
             void handle_command(const std::string& line);
@@ -47,6 +47,15 @@ namespace unbug {
             void handle_break(std::vector<std::string>& args);
             void handle_register(std::vector<std::string>& args);
             void handle_memory(std::vector<std::string>& args);
+            void handle_stepi();
+            void single_step_instruction();
+            void single_step_instruction_with_breakpoint_check();
+            void step_out();
+            void step_in();
+            void step_over();
+            void remove_breakpoint(std::intptr_t addr);
+            uint64_t get_offset_pc();
+            uint64_t offset_dwarf_address(uint64_t addr);
 
             std::string m_prog_name;
             pid_t m_pid;
